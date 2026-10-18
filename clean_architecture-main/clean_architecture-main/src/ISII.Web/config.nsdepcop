@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <NsDepCopConfig>
     <Allowed From="*" To="*" />
 
@@ -9,6 +9,9 @@
 				To="ISII.Web.Infrastructure.*" />
     
     <Disallowed From="ISII.Web.ProductFeatures.*"
+				To="ISII.Web.Infrastructure.*" />
+    
+    <Disallowed From="ISII.Web.CouponFeatures.*"
 				To="ISII.Web.Infrastructure.*" />
     
     <Disallowed From="ISII.Web.Domain.OrderAggregate.*"

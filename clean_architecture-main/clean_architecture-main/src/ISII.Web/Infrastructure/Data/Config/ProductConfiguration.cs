@@ -11,6 +11,7 @@ public class ProductConfiguration : IEntityTypeConfiguration<Product>
     builder.Property(entity => entity.Id)
       .HasValueGenerator<VogenIntIdValueGenerator<AppDbContext, Product, ProductId>>()
       .HasVogenConversion()
+      .HasSentinel(ProductId.New)
       .IsRequired();
 
     builder.Property(entity => entity.Name)

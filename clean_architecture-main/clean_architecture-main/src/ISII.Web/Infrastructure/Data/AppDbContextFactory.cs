@@ -24,7 +24,7 @@ public class AppDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
 
     // Try to get connection string from environment variable (ASP.NET Core format)
     var connectionString = Environment.GetEnvironmentVariable("ConnectionStrings__AppDb")
-                          ?? "Server=localhost,1433;Database=AppDb_Design;User ID=sa;Password=Your$tr0ngP@ss!;TrustServerCertificate=true"; // Default SQL Server connection for design-time
+                          ?? "DataSource=ISII.db;Cache=Shared";
 
     optionsBuilder.UseSqlite(connectionString);
 

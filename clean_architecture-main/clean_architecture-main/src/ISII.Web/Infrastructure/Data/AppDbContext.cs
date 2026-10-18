@@ -1,6 +1,7 @@
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using ISII.Web.Domain.CartAggregate;
+using ISII.Web.Domain.CouponAggregate;
 using ISII.Web.Domain.GuestUserAggregate;
 using ISII.Web.Domain.OrderAggregate;
 using ISII.Web.Domain.ProductAggregate;
@@ -10,6 +11,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) :
   DbContext(options)
 {
   public DbSet<Product> Products => Set<Product>();
+  public DbSet<Coupon> Coupons => Set<Coupon>();
   public DbSet<Cart> Carts => Set<Cart>();
   public DbSet<CartItem> CartItems => Set<CartItem>();
   public DbSet<GuestUser> GuestUsers => Set<GuestUser>();

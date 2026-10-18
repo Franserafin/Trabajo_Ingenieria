@@ -58,6 +58,57 @@ namespace ISII.Web.Migrations
                     b.ToTable("CartItems", (string)null);
                 });
 
+            modelBuilder.Entity("ISII.Web.Domain.CouponAggregate.Coupon", b =>
+                {
+                    b.Property<int>("Id")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("DiscountPercentage")
+                        .HasPrecision(5, 2)
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTimeOffset>("ExpirationDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("MaxUsages")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<decimal>("MinimumAmount")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("TimesUsed")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Code")
+                        .IsUnique();
+
+                    b.ToTable("Coupons");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Code = "WELCOME10",
+                            DiscountPercentage = 10.00m,
+                            ExpirationDate = new DateTimeOffset(new DateTime(2030, 12, 31, 23, 59, 59, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            IsActive = true,
+                            MaxUsages = 100,
+                            MinimumAmount = 20.00m,
+                            TimesUsed = 0
+                        });
+                });
+
             modelBuilder.Entity("ISII.Web.Domain.GuestUserAggregate.GuestUser", b =>
                 {
                     b.Property<Guid>("Id")

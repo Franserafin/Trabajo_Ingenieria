@@ -51,6 +51,38 @@ Content-Type: application/json
 }
 ### Note: Get order ID from response for future use
 
+### Get Coupon By ID (Seed Coupon: WELCOME10)
+GET {{MinimalClean_HostAddress}}/coupons/1
+Accept: application/json
 
+### Create Coupon
+POST {{MinimalClean_HostAddress}}/coupons
+Content-Type: application/json
 
+{
+  "code": "PROMO25",
+  "discountPercentage": 25.0,
+  "minimumAmount": 50.00,
+  "expirationDate": "2030-12-31T23:59:59Z",
+  "maxUsages": 100
+}
 
+### Get Newly Created Coupon
+GET {{MinimalClean_HostAddress}}/coupons/2
+Accept: application/json
+
+### Create Coupon - Validation Error (Negative minimum amount & invalid percentage)
+POST {{MinimalClean_HostAddress}}/coupons
+Content-Type: application/json
+
+{
+  "code": "X",
+  "discountPercentage": 150.0,
+  "minimumAmount": -10.00,
+  "expirationDate": "2020-01-01T00:00:00Z",
+  "maxUsages": 0
+}
+
+### Get Non-existent Coupon (404 Not Found)
+GET {{MinimalClean_HostAddress}}/coupons/9999
+Accept: application/json
